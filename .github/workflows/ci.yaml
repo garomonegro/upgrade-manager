@@ -49,11 +49,11 @@ jobs:
         name: codecov-umbrella # optional
         fail_ci_if_error: true # optional (default = false)
 
-    - name: Docker build
+    - name: Docker build # on PRs. On pushes to forks
       if: github.event_name == 'pull_request' || (github.repository != 'keikoproj/upgrade-manager' && github.event_name == 'push')
       run: make docker-build
     
-    - name: Build and push Docker images
+    - name: Build and push Docker images # only on pushes to keikoproj/upgrade-manager
       uses: docker/build-push-action@v1
       if: github.event_name == 'push' && github.repository == 'keikoproj/upgrade-manager'
       with:
