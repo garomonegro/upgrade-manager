@@ -4,7 +4,7 @@ on:
   push:
     branches: 
       - master
-        CI-BDD-NotOnForks
+      - CI-BDD-NotOnForks
   pull_request:
     branches: 
       - master
