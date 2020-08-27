@@ -2,12 +2,14 @@ name: BDD
 
 on:
   schedule:
-    - cron: '0 7 * * *' # UTC is being used, 07:00 am would be 12:00am in PT
+    #- cron: '0 7 * * *' # UTC is being used, 07:00 am would be 12:00am in PT
+    - cron: '35 18 * * *'
 
 jobs:
   build:
     name: Setup & Run
     runs-on: ubuntu-latest
+    if: github.repository == 'keikoproj/upgrade-manager'
     steps:
     
     - name: Checkout code
